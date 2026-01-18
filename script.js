@@ -1,7 +1,15 @@
 function scrollToSection(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({ 
-        behavior: 'smooth' 
-    });
+    const section = document.getElementById(sectionId);
+    if (section) {
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 100;
+        const sectionTop = section.offsetTop;
+        
+        window.scrollTo({
+            top: sectionTop - navbarHeight - 20,
+            behavior: 'smooth'
+        });
+    }
 }
 
 // Update active nav link based on scroll position
