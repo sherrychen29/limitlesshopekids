@@ -425,9 +425,9 @@ body {
 }
 
 .team-section .container {
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 24px;
     display: flex;
     justify-content: center;
 }
@@ -538,9 +538,16 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 35px;
     margin: 40px auto 0;
-    max-width: 1200px;
+    max-width: 1320px;
     width: 100%;
     justify-items: center;
+}
+
+@media (min-width: 1200px) {
+    .team-grid-secondary {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 28px;
+    }
 }
 
 .team-member-secondary-wrapper {
