@@ -82,21 +82,32 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.88rem;
-    transition: all 0.3s ease;
-    padding: 7px 14px;
-    border-radius: 30px;
+    transition: color 0.25s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 2px solid transparent;
 }
 
 .nav-links a:hover {
     color: #FF6B35;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .nav-links a.active {
-    color: #FF6B35;
-    background: linear-gradient(135deg, rgba(255, 229, 217, 0.7), rgba(255, 210, 63, 0.2));
-    border: 1.5px solid rgba(255, 107, 53, 0.35);
-    font-weight: 600;
-    border-radius: 50px;
+    color: #c94a1f;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 248, 235, 0.65) 50%, rgba(255, 238, 218, 0.6) 100%);
+    border: 1.5px solid rgba(255, 140, 66, 0.45);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 12px rgba(255, 107, 53, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-links a.active:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 245, 228, 0.7) 50%, rgba(255, 232, 210, 0.65) 100%);
+    border-color: rgba(255, 120, 50, 0.5);
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 /* Hamburger menu */
