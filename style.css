@@ -619,6 +619,128 @@ body {
     max-width: 200px;
 }
 
+/* ── Gallery Section ─────────────────────────────── */
+.gallery-section {
+    padding: 70px 0 60px;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 44px;
+    padding: 0 40px;
+}
+
+.gallery-eyebrow {
+    display: inline-block;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #FF6B35;
+    background: rgba(255, 107, 53, 0.08);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 50px;
+    padding: 5px 18px;
+    margin-bottom: 14px;
+}
+
+.gallery-title {
+    font-family: "DynaPuff", system-ui;
+    font-weight: 547;
+    font-variation-settings: "wdth" 96.9;
+    font-size: 2.5rem;
+    color: #ef5741;
+    margin: 0;
+}
+
+/* Stage wraps both rows and provides the fade-edge mask */
+.gallery-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+}
+
+.gallery-stage:hover .gallery-row {
+    animation-play-state: paused;
+}
+
+/* Each row is a flex strip wide enough to hold doubled content */
+.gallery-row {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    will-change: transform;
+}
+
+.gallery-row-1 {
+    animation: gallery-scroll-left 45s linear infinite;
+}
+
+.gallery-row-2 {
+    animation: gallery-scroll-right 38s linear infinite;
+}
+
+@keyframes gallery-scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes gallery-scroll-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+/* Individual photo cards */
+.gallery-photo {
+    flex-shrink: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(92, 64, 51, 0.13);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    background: #eee;
+    /* Slight random tilt set per-card via JS */
+}
+
+.gallery-photo:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 10px 36px rgba(255, 107, 53, 0.25);
+    z-index: 5;
+    position: relative;
+}
+
+.gallery-photo img {
+    display: block;
+    width: auto;
+    object-fit: cover;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+}
+
+.gallery-photo.h-short  img { height: 170px; }
+.gallery-photo.h-medium img { height: 215px; }
+.gallery-photo.h-tall   img { height: 260px; }
+
+/* ── End Gallery Section ─────────────────────────── */
+
 /* Impact Section */
 .impact-section {
     padding: 30px 0;
@@ -886,6 +1008,26 @@ html {
 
     .team-name-secondary {
         font-size: 0.95rem;
+    }
+
+    .gallery-section {
+        padding: 50px 0 40px;
+    }
+
+    .gallery-title {
+        font-size: 2rem;
+    }
+
+    .gallery-photo.h-short  img { height: 130px; }
+    .gallery-photo.h-medium img { height: 165px; }
+    .gallery-photo.h-tall   img { height: 200px; }
+
+    .gallery-stage {
+        gap: 10px;
+    }
+
+    .gallery-row {
+        gap: 10px;
     }
 
     .impact-section {
