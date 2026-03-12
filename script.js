@@ -88,9 +88,10 @@
 // ── Local Supporters (dynamic list: add entries + image in media/localsupporters to show more) ──
 (function initLocalSupporters() {
     const LOCAL_SUPPORTERS = [
-        { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/localsupporters/pawsnatural.avif' },
-        { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/localsupporters/hollandbloorview.png' },
-        { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/localsupporters/circlesandsquares.jpg' }
+        { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/supporters/pawsnatural.avif' },
+        { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/supporters/hollandbloorview.png' },
+        { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/supporters/circlesandsquares.jpg' },
+        { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/supporters/c4c.jpg' }
     ];
 
     const container = document.getElementById('local-supporters-logos');
