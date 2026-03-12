@@ -19,7 +19,7 @@
                 <img src="media/sun.png" alt="Limitless Hope Kids Logo">
                 <h1 class="navbar-title">Limitless Hope Kids</h1>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
@@ -28,6 +28,11 @@
                 <li><a href="#get-involved">Get Involved</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -126,7 +131,7 @@
                 <p class="team-intro">Meet the passionate highschoolers behind Limitless Hope Kids. We are dedicated to
                     making a difference in the lives of kids experiencing disabilities and their families.</p>
                 <div class="cofounders-wrapper">
-                    <div class="cofounder-card">
+                    <div class="cofounder-card reveal">
                         <div class="cofounder-photo">
                             <img src="media/cf1.png" alt="Sherry Chen">
                         </div>
@@ -138,7 +143,7 @@
                                 cognitive disabilities and interested in data science and art!</p>
                         </div>
                     </div>
-                    <div class="cofounder-card">
+                    <div class="cofounder-card reveal delay-1">
                         <div class="cofounder-photo">
                             <img src="media/cf2.png" alt="Paige Wanniappa">
                         </div>
@@ -157,7 +162,7 @@
                     <span></span>
                 </div>
                 <div class="team-grid-secondary">
-                    <div class="team-member-secondary-wrapper">
+                    <div class="team-member-secondary-wrapper reveal">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -170,7 +175,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper">
+                    <div class="team-member-secondary-wrapper reveal delay-1">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -183,7 +188,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper">
+                    <div class="team-member-secondary-wrapper reveal delay-2">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -195,7 +200,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper">
+                    <div class="team-member-secondary-wrapper reveal delay-3">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -207,7 +212,7 @@
                                 tutoring!</p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper">
+                    <div class="team-member-secondary-wrapper reveal delay-4">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -225,7 +230,6 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
     <!-- Events Section -->
@@ -234,7 +238,7 @@
         <div class="section-deco section-deco-4">❋</div>
         <div class="section-deco section-deco-8">✦</div>
         <div class="container">
-            <div class="section-content">
+            <div class="section-content reveal">
                 <h2>Events</h2>
                 <p>Join us for our upcoming events and activities! We organize various fundraisers and awareness
                     campaigns throughout the year to support kids experiencing disabilities.</p>
@@ -260,7 +264,7 @@
         <div class="section-deco section-deco-6">❋</div>
         <div class="section-deco section-deco-9">✦</div>
         <div class="container">
-            <div class="get-involved-content">
+            <div class="get-involved-content reveal">
                 <h2>Get Involved</h2>
                 <p>We're currently running a community initiative where we create care packages for care workers at
                     Holland Bloorview Children's Hospital. We're reaching out to local businesses who might be
@@ -283,14 +287,30 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: limitlesshopekids@gmail.com</p>
-                <p>Phone: +1 (416) 886-5378</p>
+                <div class="footer-links">
+                    <a href="mailto:limitlesshopekids@gmail.com" class="footer-social-link footer-link-email">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Email
+                    </a>
+                    <a href="https://www.instagram.com/limitlesshopekids/" class="footer-social-link footer-link-instagram" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        Instagram
+                    </a>
+                    <a href="https://gofund.me/d37bc5354" class="footer-social-link footer-link-gofundme" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        GoFundMe
+                    </a>
+                    <a href="tel:+14168865378" class="footer-social-link footer-link-phone">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Phone
+                    </a>
+                    <a href="https://linktr.ee/limitlesshopekids" class="footer-social-link footer-link-linktree" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Linktree
+                    </a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <p><a href="https://www.instagram.com/limitlesshopekids/">Instagram</a></p>
-            </div>
-            <div class="footer-section">
+            <div class="footer-section footer-section-brand">
                 <h3>Limitless Hope Kids</h3>
                 <p>Leveling the playing field for kids experiencing disabilities.</p>
             </div>
@@ -309,6 +329,10 @@
             <img class="lightbox-sun" src="media/sun.png" alt="">
         </div>
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
