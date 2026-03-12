@@ -1,15 +1,11 @@
 // ── Gallery ────────────────────────────────────────
-// Photos are read dynamically from media/gallery/manifest.json.
-// Whenever you add/remove photos from media/gallery/, run:
-//   node generate-gallery.js
-// in your terminal to update the manifest, then commit both files.
+// Reads media/gallery/ directly from GitHub — no scripts, no manifests.
+// Just push photos into media/gallery/ and they appear automatically.
 (function initGallery() {
-    const MANIFEST = 'media/gallery/manifest.json';
-    const GALLERY_DIR = 'media/gallery/';
+    const GITHUB_API = 'https://api.github.com/repos/sherrychen29/limitlesshopekids/contents/media/gallery';
+    const IMAGE_EXTS = /\.(jpg|jpeg|png|webp|gif|avif)$/i;
 
-    const fallbackPhotos = [
-        'media/empty.jpg',
-    ];
+    const fallbackPhotos = ['media/empty.jpg'];
 
     const heights = ['h-medium', 'h-tall', 'h-short', 'h-medium', 'h-short', 'h-tall', 'h-medium', 'h-tall', 'h-short', 'h-medium', 'h-tall', 'h-short'];
     const tilts   = [-1.8, 1.2, -0.8, 2, -1.5, 0.9, -2, 1.5, -0.5, 1.8, -1.2, 0.6];
@@ -23,14 +19,30 @@
         return a;
     }
 
+    function openLightbox(src) {
+        const lb  = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lb  = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        lb.classList.remove('open');
+        img.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxBackdrop').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
     function buildRow(rowEl, photos) {
-        // Repeat photos enough times so the track fills the screen several times over,
-        // then duplicate the full set for the seamless -50% loop animation.
         const minRepeat = Math.max(3, Math.ceil(14 / photos.length));
         let set = [];
         for (let i = 0; i < minRepeat; i++) set = set.concat(photos);
-
-        // Duplicate for seamless infinite loop (animation shifts by -50%)
         const items = [...set, ...set];
 
         items.forEach((src, i) => {
@@ -38,6 +50,7 @@
             card.className = `gallery-photo ${heights[i % heights.length]}`;
             card.style.transform = `rotate(${tilts[i % tilts.length]}deg)`;
             card.style.marginTop = (i % 3 === 1) ? '10px' : '0';
+            card.addEventListener('click', () => openLightbox(src));
 
             const img = document.createElement('img');
             img.src = src;
@@ -57,18 +70,18 @@
         if (row2) buildRow(row2, shuffle(photos));
     }
 
-    fetch(MANIFEST)
+    fetch(GITHUB_API)
         .then(res => {
-            if (!res.ok) throw new Error('no manifest');
+            if (!res.ok) throw new Error('API error');
             return res.json();
         })
-        .then(filenames => {
-            const photos = filenames.map(f => GALLERY_DIR + f);
+        .then(files => {
+            const photos = files
+                .filter(f => f.type === 'file' && IMAGE_EXTS.test(f.name))
+                .map(f => f.download_url);
             renderGallery(photos.length ? photos : fallbackPhotos);
         })
-        .catch(() => {
-            renderGallery(fallbackPhotos);
-        });
+        .catch(() => renderGallery(fallbackPhotos));
 })();
 // ── End Gallery ────────────────────────────────────
 

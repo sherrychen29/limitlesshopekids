@@ -33,6 +33,11 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
+        <div class="hero-deco hero-deco-1">✦</div>
+        <div class="hero-deco hero-deco-2">❋</div>
+        <div class="hero-deco hero-deco-3">✦</div>
+        <div class="hero-deco hero-deco-4">✦</div>
+        <div class="hero-deco hero-deco-5">❋</div>
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Limitless Hope Kids</h1>
@@ -66,9 +71,19 @@
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section">
+        <div class="gallery-deco gallery-deco-1">✦</div>
+        <div class="gallery-deco gallery-deco-2">✦</div>
+        <div class="gallery-deco gallery-deco-3">❋</div>
+        <div class="gallery-deco gallery-deco-4">✦</div>
+        <div class="gallery-deco gallery-deco-5">❋</div>
         <div class="gallery-header">
-            <span class="gallery-eyebrow">Our Moments</span>
-            <h2 class="gallery-title">Making Memories</h2>
+            <h2 class="gallery-title">Photo Gallery</h2>
+            <p class="gallery-subtitle">A glimpse into our impactful within the community.</p>
+            <div class="gallery-divider">
+                <span></span>
+                <img src="media/sun.png" alt="">
+                <span></span>
+            </div>
         </div>
         <div class="gallery-stage">
             <div class="gallery-row gallery-row-1" id="galleryRow1"></div>
@@ -102,38 +117,44 @@
 
     <!-- Team Section -->
     <section id="team" class="section team-section">
+        <div class="section-deco section-deco-1">✦</div>
+        <div class="section-deco section-deco-2">❋</div>
+        <div class="section-deco section-deco-7">✦</div>
         <div class="container">
             <div class="team-content">
                 <h2>Meet the Team</h2>
                 <p class="team-intro">Meet the passionate highschoolers behind Limitless Hope Kids. We are dedicated to
                     making a difference in the lives of kids experiencing disabilities and their families.</p>
                 <div class="cofounders-wrapper">
-                    <div class="cofounder-block">
-                        <div class="rounded-box"></div>
-                        <div class="team-member">
-                            <div class="team-image">
-                                <img src="media/cf1.png" alt="Co-founder 1">
-                            </div>
-                            <h3 class="team-name">Sherry Chen</h3>
-                            <p class="team-position">CO-FOUNDER</p>
-                            <p class="team-description">Hi! I'm Sherry, founder of Limitless Hope Kids. Inspired by a
+                    <div class="cofounder-card">
+                        <div class="cofounder-photo">
+                            <img src="media/cf1.png" alt="Sherry Chen">
+                        </div>
+                        <div class="cofounder-info">
+                            <h3 class="cofounder-name">Sherry Chen</h3>
+                            <span class="cofounder-role">CO-FOUNDER</span>
+                            <p class="cofounder-bio">Hi! I'm Sherry, founder of Limitless Hope Kids. Inspired by a
                                 family member with neurodivergence, I'm passionate about supporting children with
                                 cognitive disabilities and interested in data science and art!</p>
                         </div>
                     </div>
-                    <div class="cofounder-block">
-                        <div class="rounded-box"></div>
-                        <div class="team-member">
-                            <div class="team-image">
-                                <img src="media/cf2.png" alt="Co-founder 2">
-                            </div>
-                            <h3 class="team-name">Paige Wanniappa</h3>
-                            <p class="team-position">CO-FOUNDER</p>
-                            <p class="team-description">Hi! I'm Paige, co-founder of Limitless Hope Kids. Inspired by my
+                    <div class="cofounder-card">
+                        <div class="cofounder-photo">
+                            <img src="media/cf2.png" alt="Paige Wanniappa">
+                        </div>
+                        <div class="cofounder-info">
+                            <h3 class="cofounder-name">Paige Wanniappa</h3>
+                            <span class="cofounder-role">CO-FOUNDER</span>
+                            <p class="cofounder-bio">Hi! I'm Paige, co-founder of Limitless Hope Kids. Inspired by my
                                 younger cousins, I'm passionate about ensuring all kids can experience joy, and Im
                                 interested in finance and accounting, with a love for movies—especially The Lorax.</p>
                         </div>
                     </div>
+                </div>
+                <div class="team-divider">
+                    <span></span>
+                    <p>Our Team</p>
+                    <span></span>
                 </div>
                 <div class="team-grid-secondary">
                     <div class="team-member-secondary-wrapper">
@@ -209,6 +230,9 @@
 
     <!-- Events Section -->
     <section id="events" class="section events-section">
+        <div class="section-deco section-deco-3">✦</div>
+        <div class="section-deco section-deco-4">❋</div>
+        <div class="section-deco section-deco-8">✦</div>
         <div class="container">
             <div class="section-content">
                 <h2>Events</h2>
@@ -232,6 +256,9 @@
 
     <!-- Get Involved Section -->
     <section id="get-involved" class="get-involved">
+        <div class="section-deco section-deco-5">✦</div>
+        <div class="section-deco section-deco-6">❋</div>
+        <div class="section-deco section-deco-9">✦</div>
         <div class="container">
             <div class="get-involved-content">
                 <h2>Get Involved</h2>
@@ -272,6 +299,16 @@
             <p>&copy; 2026 Limitless Hope Kids. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+        <div class="lightbox-frame">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery photo">
+            <img class="lightbox-sun" src="media/sun.png" alt="">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
