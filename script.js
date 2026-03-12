@@ -85,6 +85,37 @@
 })();
 // ── End Gallery ────────────────────────────────────
 
+// ── Local Supporters (dynamic list: add entries + image in media/localsupporters to show more) ──
+(function initLocalSupporters() {
+    const LOCAL_SUPPORTERS = [
+        { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/localsupporters/pawsnatural.avif' },
+        { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/localsupporters/hollandbloorview.png' },
+        { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/localsupporters/circlesandsquares.jpg' }
+    ];
+
+    const container = document.getElementById('local-supporters-logos');
+    if (!container) return;
+
+    LOCAL_SUPPORTERS.forEach(function (s) {
+        const a = document.createElement('a');
+        a.href = s.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'local-supporter-link';
+        a.setAttribute('aria-label', 'Visit ' + s.name);
+
+        const img = document.createElement('img');
+        img.src = s.image;
+        img.alt = s.name;
+        img.loading = 'lazy';
+        img.className = 'local-supporter-logo';
+
+        a.appendChild(img);
+        container.appendChild(a);
+    });
+})();
+// ── End Local Supporters ────────────────────────────
+
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {

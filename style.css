@@ -459,7 +459,7 @@ body {
         radial-gradient(ellipse at 80% 25%, rgba(255, 210, 63, 0.1) 0%, transparent 55%),
         radial-gradient(ellipse at 20% 80%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
         #fdf2db;
-    padding: 80px 0 48px;
+    padding: 80px 0 24px;
     position: relative;
     overflow: hidden;
 }
@@ -471,7 +471,7 @@ body {
 .instagram-feed-container {
     max-width: 1600px;
     margin: 30px auto;
-    padding: 20px 0;
+    padding: 20px 0 8px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -497,11 +497,58 @@ body {
     min-height: 200px;
 }
 
+/* Local Supporters Section */
+.local-supporters-section {
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(255, 210, 63, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
+        #F7F7E9;
+}
+
+.local-supporters-section .section-content p {
+    margin-bottom: 32px;
+}
+
+.local-supporters-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px 48px;
+    margin-top: 24px;
+}
+
+.local-supporter-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.local-supporter-logo {
+    max-height: 110px;
+    max-width: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .local-supporters-logos {
+        gap: 24px;
+    }
+    .local-supporter-logo {
+        max-height: 80px;
+        max-width: 200px;
+    }
+}
+
 /* Instagram More Button */
 .instagram-more-button {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 24px;
+    margin-bottom: 0;
 }
 
 .btn-instagram {
