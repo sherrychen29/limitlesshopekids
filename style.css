@@ -166,10 +166,13 @@ body {
     align-items: center;
     padding: 120px 0 40px 0;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(255, 210, 63, 0.1) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(255, 107, 53, 0.07) 0%, transparent 55%),
-        radial-gradient(ellipse at 60% 90%, rgba(255, 210, 63, 0.06) 0%, transparent 45%),
-        #fdf8ef;
+        linear-gradient(
+            105deg,
+            rgba(253, 248, 239, 0.88) 0%,
+            rgba(253, 248, 239, 0.72) 45%,
+            rgba(253, 248, 239, 0.5) 100%
+        ),
+        url('media/background.png') center / cover no-repeat;
     color: #5C4033;
     position: relative;
     overflow: hidden;
@@ -191,29 +194,14 @@ body {
 .hero-container {
     display: flex;
     align-items: center;
-    gap: 115px;
     width: 100%;
     position: relative;
     z-index: 1;
 }
 
-.hero-image {
-    flex: 0 0 37%;
-    display: flex;
-}
-
-.hero-image img {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin-left: auto;
-}
-
 .hero-content {
     text-align: left;
-    flex: 0 0 70%;
+    max-width: 640px;
 }
 
 /* Scroll Prompt */
@@ -1451,16 +1439,6 @@ html {
 
     .hero-container {
         flex-direction: column;
-        gap: 40px;
-    }
-
-    .hero-image {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .hero-image img {
-        max-width: 100%;
     }
 
     .hero h1 {
@@ -1648,10 +1626,6 @@ html {
     .hero p {
         font-size: 1rem;
         line-height: 1.6;
-    }
-
-    .hero-image {
-        max-width: 240px;
     }
 
     .btn-carebasket {
