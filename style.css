@@ -26,7 +26,7 @@ body {
     background: rgba(253, 242, 219, 0.82);
     backdrop-filter: blur(16px) saturate(1.4);
     -webkit-backdrop-filter: blur(16px) saturate(1.4);
-    padding: 8px 80px;
+    padding: 10px 80px 16px;
     z-index: 1000;
     box-shadow: 0 1px 12px rgba(92, 64, 51, 0.05);
     border-bottom: 1px solid rgba(255, 210, 63, 0.15);
@@ -34,7 +34,7 @@ body {
 }
 
 .navbar.scrolled {
-    padding: 4px 80px;
+    padding: 6px 80px 12px;
     background: rgba(253, 242, 219, 0.96);
     box-shadow: 0 2px 24px rgba(92, 64, 51, 0.13);
 }
@@ -919,11 +919,11 @@ body {
 }
 
 .gallery-row-1 {
-    animation: gallery-scroll-left 88s linear infinite;
+    animation: gallery-scroll-left 140s linear infinite;
 }
 
 .gallery-row-2 {
-    animation: gallery-scroll-right 78s linear infinite;
+    animation: gallery-scroll-right 183s linear infinite;
 }
 
 @keyframes gallery-scroll-left {
@@ -1383,11 +1383,11 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
-        padding: 8px 20px;
+        padding: 10px 20px 12px;
     }
 
     .navbar.scrolled {
-        padding: 4px 20px;
+        padding: 6px 20px 10px;
     }
 
     .nav-container {
@@ -1413,7 +1413,7 @@ html {
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         gap: 4px;
-        padding: 12px 20px 20px;
+        padding: 12px 20px 36px;
         border-bottom: 1px solid rgba(255, 210, 63, 0.25);
         box-shadow: 0 8px 24px rgba(92, 64, 51, 0.1);
         z-index: 999;
@@ -1589,11 +1589,11 @@ html {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 8px 16px;
+        padding: 10px 16px 12px;
     }
 
     .navbar.scrolled {
-        padding: 4px 16px;
+        padding: 6px 16px 10px;
     }
 
     .back-to-top {
