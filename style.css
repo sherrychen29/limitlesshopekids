@@ -514,8 +514,8 @@ body {
 }
 
 .local-supporter-logo {
-    max-height: 110px;
-    max-width: 280px;
+    max-height: 150px;
+    max-width: 360px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -526,8 +526,8 @@ body {
         gap: 24px;
     }
     .local-supporter-logo {
-        max-height: 80px;
-        max-width: 200px;
+        max-height: 110px;
+        max-width: 270px;
     }
 }
 
