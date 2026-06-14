@@ -468,7 +468,7 @@ body {
 }
 
 .instagram-feed-wrapper {
-    width: 75%;
+    width: 100%;
     max-width: 100%;
     display: flex;
     justify-content: center;
@@ -696,20 +696,110 @@ body {
 }
 
 /* ── Secondary Team Members ── */
-.team-grid-secondary {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 22px;
-    margin: 0 auto;
-    max-width: 1100px;
+.team-carousel {
+    --team-visible: 4;
+    --team-gap: 22px;
+    position: relative;
     width: 100%;
-    justify-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.team-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.team-carousel-btn {
+    position: absolute;
+    top: 42%;
+    z-index: 3;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 3px solid #FFD23F;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff9055 0%, #FF6B35 55%, #ff5722 100%);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.5, 0.64, 1), background 0.3s ease, opacity 0.2s ease;
+}
+
+.team-carousel-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.team-carousel-prev {
+    left: 4px;
+    transform: translate(-50%, -50%);
+}
+
+.team-carousel-next {
+    right: 4px;
+    transform: translate(50%, -50%);
+}
+
+.team-carousel-btn:hover:not(:disabled) {
+    background: linear-gradient(145deg, #ff9d66 0%, #ff7847 55%, #ff6330 100%);
+}
+
+.team-carousel-prev:hover:not(:disabled) {
+    transform: translate(-50%, calc(-50% - 4px)) scale(1.08) rotate(-4deg);
+}
+
+.team-carousel-next:hover:not(:disabled) {
+    transform: translate(50%, calc(-50% - 4px)) scale(1.08) rotate(4deg);
+}
+
+.team-carousel-prev:active:not(:disabled) {
+    transform: translate(-50%, calc(-50% + 2px)) scale(0.96);
+}
+
+.team-carousel-next:active:not(:disabled) {
+    transform: translate(50%, calc(-50% + 2px)) scale(0.96);
+}
+
+.team-carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    background: #f0c9b8;
+    border-color: #e8b89e;
+    color: #fff;
+}
+
+.team-grid-secondary {
+    display: flex;
+    gap: var(--team-gap);
+    padding: 8px 4px 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.team-grid-secondary::-webkit-scrollbar {
+    display: none;
+}
+
+.team-carousel .team-member-secondary-wrapper {
+    opacity: 1;
+    transform: none;
 }
 
 .team-member-secondary-wrapper {
     position: relative;
-    padding: 24px 16px 20px;
-    width: 100%;
+    flex: 0 0 calc((100% - (var(--team-visible) - 1) * var(--team-gap)) / var(--team-visible));
+    width: calc((100% - (var(--team-visible) - 1) * var(--team-gap)) / var(--team-visible));
+    padding: 24px 12px 20px;
+    scroll-snap-align: start;
     transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
@@ -1225,6 +1315,7 @@ body {
 .reveal.delay-2 { transition-delay: 0.2s; }
 .reveal.delay-3 { transition-delay: 0.3s; }
 .reveal.delay-4 { transition-delay: 0.4s; }
+.reveal.delay-5 { transition-delay: 0.5s; }
 
 .reveal.visible {
     opacity: 1;
@@ -1487,14 +1578,36 @@ html {
         height: 80px;
     }
 
+    .team-carousel {
+        --team-visible: 2;
+        --team-gap: 16px;
+    }
+
+    .team-carousel-prev {
+        left: 2px;
+    }
+
+    .team-carousel-next {
+        right: 2px;
+    }
+
+    .team-carousel-btn {
+        width: 46px;
+        height: 46px;
+        border-width: 2.5px;
+    }
+
+    .team-carousel-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
     .team-grid-secondary {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        max-width: 100%;
+        padding: 8px 2px 14px;
     }
 
     .team-member-secondary-wrapper {
-        padding: 20px 12px 16px;
+        padding: 20px 10px 16px;
     }
 
     .team-image-secondary {
@@ -1583,6 +1696,7 @@ html {
     }
 
     .instagram-feed-wrapper {
+        width: 100%;
         max-width: 100%;
     }
 }
@@ -1638,9 +1752,19 @@ html {
         gap: 24px;
     }
 
-    .team-grid-secondary {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .team-carousel {
+        --team-visible: 1;
+        --team-gap: 12px;
+    }
+
+    .team-carousel-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .team-carousel-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
     .get-involved-buttons .btn {

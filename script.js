@@ -224,43 +224,31 @@ window.addEventListener('load', updateActiveNav);
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
-// ── Impact counter animation ──────────────────────
-(function initCounters() {
-    function animateCounter(el) {
-        const original = el.textContent.trim();
-        const numStr   = original.replace(/[^0-9]/g, '');
-        const target   = parseInt(numStr, 10);
-        if (!target) return;
+// ── Team carousel ─────────────────────────────────
+(function initTeamCarousel() {
+    const track = document.getElementById('teamCarouselTrack');
+    const prev = document.getElementById('teamCarouselPrev');
+    const next = document.getElementById('teamCarouselNext');
+    if (!track || !prev || !next) return;
 
-        const prefix = original.startsWith('$') ? '$' : '';
-        const suffix = original.endsWith('+')   ? '+' : '';
-        const duration = 1800;
-        const startTime = performance.now();
-
-        function tick(now) {
-            const elapsed  = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased    = 1 - Math.pow(1 - progress, 3);
-            const current  = Math.round(eased * target);
-            el.textContent = prefix + current.toLocaleString() + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-            else el.textContent = original;
-        }
-
-        requestAnimationFrame(tick);
+    function updateButtons() {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const canScroll = maxScroll > 1;
+        prev.disabled = !canScroll || track.scrollLeft <= 1;
+        next.disabled = !canScroll || track.scrollLeft >= maxScroll - 1;
     }
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.impact-number').forEach(animateCounter);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+    prev.addEventListener('click', () => {
+        track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+    });
 
-    const impactSection = document.querySelector('.impact-section');
-    if (impactSection) observer.observe(impactSection);
+    next.addEventListener('click', () => {
+        track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
 })();
 
 // ── Back to top ───────────────────────────────────
@@ -275,4 +263,19 @@ window.addEventListener('load', updateActiveNav);
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+})();
+
+// ── SnapWidget: recalc iframe height when container width changes ──
+(function initSnapWidgetResize() {
+    const iframe = document.querySelector('.snapwidget-widget');
+    if (!iframe) return;
+
+    function resizeWidget() {
+        if (iframe.iFrameResizer) {
+            iframe.iFrameResizer.resize();
+        }
+    }
+
+    window.addEventListener('load', () => setTimeout(resizeWidget, 600));
+    window.addEventListener('resize', resizeWidget);
 })();

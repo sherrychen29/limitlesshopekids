@@ -23,9 +23,9 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="#team">Meet the Team</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#local-supporters">Supporters</a></li>
+                <li><a href="#team">Meet the Team</a></li>
                 <li><a href="#get-involved">Get Involved</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -81,7 +81,7 @@
         <div class="gallery-deco gallery-deco-5">❋</div>
         <div class="gallery-header">
             <h2 class="gallery-title">Photo Gallery</h2>
-            <p class="gallery-subtitle">A glimpse into our impactful within the community.</p>
+            <p class="gallery-subtitle">A glimpse into our impact within the community!</p>
             <div class="gallery-divider">
                 <span></span>
                 <img src="media/sun.png" alt="">
@@ -103,18 +103,61 @@
                     <div class="impact-label">Raised</div>
                 </div>
                 <div class="impact-stat">
-                    <div class="impact-number">81+</div>
-                    <div class="impact-label">Families</div>
+                    <div class="impact-number">116</div>
+                    <div class="impact-label">Volunteers</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">143</div>
+                    <div class="impact-label">Handmade Creations</div>
                 </div>
                 <!-- <div class="impact-stat">
                     <div class="impact-number">20+</div>
                     <div class="impact-label">Events</div>
                 </div> -->
                 <div class="impact-stat">
-                    <div class="impact-number">7,000+</div>
+                    <div class="impact-number">8,000+</div>
                     <div class="impact-label">People Reached</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section events-section">
+        <div class="section-deco section-deco-3">✦</div>
+        <div class="section-deco section-deco-4">❋</div>
+        <div class="section-deco section-deco-8">✦</div>
+        <div class="container">
+            <div class="section-content reveal">
+                <h2>Events</h2>
+                <p>Join us for our upcoming events and activities! We organize various fundraisers and awareness
+                    campaigns throughout the year to support kids experiencing disabilities.</p>
+            </div>
+            <div class="instagram-feed-container">
+                <div id="instagram-feed" class="instagram-feed-wrapper">
+                    <!-- SnapWidget -->
+                    <iframe src="https://snapwidget.com/embed/1115375" class="snapwidget-widget"
+                        allowtransparency="true" frameborder="0" scrolling="no"
+                        style="border:none; overflow:hidden; width:100%;" title="Posts from Instagram"></iframe>
+                </div>
+                <div class="instagram-more-button">
+                    <a href="https://www.instagram.com/limitlesshopekids/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-instagram">MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Supporters Section -->
+    <section id="local-supporters" class="section local-supporters-section">
+        <div class="section-deco section-deco-5">✦</div>
+        <div class="section-deco section-deco-6">❋</div>
+        <div class="container">
+            <div class="section-content reveal">
+                <h2>Supporters</h2>
+                <p>Thank you to our supporters from the Toronto community and beyond. Your generosity and collaboration help us bring joy to the community. We are grateful for your support!</p>
+            </div>
+            <div id="local-supporters-logos" class="local-supporters-logos" aria-label="Local supporter logos"></div>
         </div>
     </section>
 
@@ -159,8 +202,13 @@
                     <p>Our Team</p>
                     <span></span>
                 </div>
-                <div class="team-grid-secondary">
-                    <div class="team-member-secondary-wrapper reveal">
+                <div class="team-carousel">
+                    <button type="button" class="team-carousel-btn team-carousel-prev" id="teamCarouselPrev" aria-label="Previous team members">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="team-carousel-viewport">
+                        <div class="team-grid-secondary" id="teamCarouselTrack">
+                    <div class="team-member-secondary-wrapper">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -170,10 +218,9 @@
                             <p class="team-position-secondary">SOCIAL MEDIA MANAGER</p>
                             <p class="team-description-secondary">Believes in empowering children through opportunities
                                 and encouragement.</p>
-                            </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper reveal delay-1">
+                    <div class="team-member-secondary-wrapper">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -186,7 +233,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper reveal delay-2">
+                    <div class="team-member-secondary-wrapper">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -198,7 +245,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper reveal delay-3">
+                    <div class="team-member-secondary-wrapper">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
@@ -210,11 +257,11 @@
                                 tutoring!</p>
                         </div>
                     </div>
-                    <div class="team-member-secondary-wrapper reveal delay-4">
+                    <div class="team-member-secondary-wrapper">
                         <div class="rounded-box-secondary"></div>
                         <div class="team-member-secondary">
                             <div class="team-image-secondary">
-                                <img src="media/t7.png" alt="Team Member 7">
+                                <img src="media/t7.png" alt="Sammie Smith">
                             </div>
                             <h3 class="team-name-secondary">Sammie Smith</h3>
                             <p class="team-position-secondary">EVENTS EXECUTIVE</p>
@@ -223,49 +270,24 @@
                             </p>
                         </div>
                     </div>
-
-
+                    <div class="team-member-secondary-wrapper">
+                        <div class="rounded-box-secondary"></div>
+                        <div class="team-member-secondary">
+                            <div class="team-image-secondary">
+                                <img src="media/t8.png" alt="Julia Wan">
+                            </div>
+                            <h3 class="team-name-secondary">Julia Wan</h3>
+                            <p class="team-position-secondary">BAY AREA AMBASSADOR</p>
+                            <p class="team-description-secondary">Enjoys child advocacy and robotics.</p>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <button type="button" class="team-carousel-btn team-carousel-next" id="teamCarouselNext" aria-label="Next team members">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="events" class="section events-section">
-        <div class="section-deco section-deco-3">✦</div>
-        <div class="section-deco section-deco-4">❋</div>
-        <div class="section-deco section-deco-8">✦</div>
-        <div class="container">
-            <div class="section-content reveal">
-                <h2>Events</h2>
-                <p>Join us for our upcoming events and activities! We organize various fundraisers and awareness
-                    campaigns throughout the year to support kids experiencing disabilities.</p>
-            </div>
-            <div class="instagram-feed-container">
-                <div id="instagram-feed" class="instagram-feed-wrapper">
-                    <!-- SnapWidget -->
-                    <iframe src="https://snapwidget.com/embed/1115375" class="snapwidget-widget"
-                        allowtransparency="true" frameborder="0" scrolling="no"
-                        style="border:none; overflow:hidden; width:100%;" title="Posts from Instagram"></iframe>
-                </div>
-                <div class="instagram-more-button">
-                    <a href="https://www.instagram.com/limitlesshopekids/" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-instagram">MORE</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Local Supporters Section -->
-    <section id="local-supporters" class="section local-supporters-section">
-        <div class="section-deco section-deco-5">✦</div>
-        <div class="section-deco section-deco-6">❋</div>
-        <div class="container">
-            <div class="section-content reveal">
-                <h2>Supporters</h2>
-                <p>Thank you to our supporters from the Toronto community and beyond. Your generosity and collaboration help us bring joy to the community. We are grateful for your support!</p>
-            </div>
-            <div id="local-supporters-logos" class="local-supporters-logos" aria-label="Local supporter logos"></div>
         </div>
     </section>
 
