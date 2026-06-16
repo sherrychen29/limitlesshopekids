@@ -92,7 +92,10 @@
         { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/partners/pawsnatural.avif' },
         { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/partners/hollandbloorview.png' },
         { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/partners/circlesandsquares.jpg' },
-        { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/c4c.jpg' }
+        { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/c4c.jpg' },
+        { name: 'Toronto High Park FC', url: 'https://www.thpfc.ca/', image: 'media/partners/highparkfc.png' },
+        { name: 'Variety Village', url: 'https://www.varietyvillage.ca/', image: 'media/partners/varietyvillage.png' },
+        { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' }
     ];
 
     const container = document.getElementById('local-supporters-logos');
