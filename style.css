@@ -1119,6 +1119,30 @@ body {
     to   { opacity: 1; transform: scale(1); }
 }
 
+.lightbox-spinner {
+    display: none;
+    position: relative;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.25);
+    border-top-color: #FF6B35;
+    animation: lightbox-spin 0.8s linear infinite;
+}
+
+.lightbox.loading .lightbox-spinner {
+    display: block;
+}
+
+.lightbox.loading .lightbox-frame {
+    display: none;
+}
+
+@keyframes lightbox-spin {
+    to { transform: rotate(360deg); }
+}
+
 .lightbox-close {
     position: absolute;
     top: 20px;

@@ -10,6 +10,15 @@
     const heights = ['h-medium', 'h-tall', 'h-short', 'h-medium', 'h-short', 'h-tall', 'h-medium', 'h-tall', 'h-short', 'h-medium', 'h-tall', 'h-short'];
     const tilts   = [-1.8, 1.2, -0.8, 2, -1.5, 0.9, -2, 1.5, -0.5, 1.8, -1.2, 0.6];
 
+    // The original photos are full-resolution (often 6000px / 10MB+). Route them
+    // through a free image-resizing CDN so the browser only downloads a small,
+    // web-optimized WebP instead of the multi-megabyte original.
+    function optimized(url, height) {
+        if (!/^https?:\/\//i.test(url)) return url; // local fallbacks: leave as-is
+        return 'https://wsrv.nl/?url=' + encodeURIComponent(url) +
+               '&h=' + height + '&q=78&output=webp&we';
+    }
+
     function shuffle(arr) {
         const a = [...arr];
         for (let i = a.length - 1; i > 0; i--) {
@@ -22,15 +31,22 @@
     function openLightbox(src) {
         const lb  = document.getElementById('lightbox');
         const img = document.getElementById('lightboxImg');
-        img.src = src;
-        lb.classList.add('open');
+        lb.classList.add('open', 'loading');
         document.body.style.overflow = 'hidden';
+
+        // Show the spinner until the (larger) image has finished downloading.
+        img.onload = () => lb.classList.remove('loading');
+        img.onerror = () => lb.classList.remove('loading');
+        img.src = optimized(src, 1400);
+        if (img.complete && img.naturalWidth) lb.classList.remove('loading');
     }
 
     function closeLightbox() {
         const lb  = document.getElementById('lightbox');
         const img = document.getElementById('lightboxImg');
-        lb.classList.remove('open');
+        lb.classList.remove('open', 'loading');
+        img.onload = null;
+        img.onerror = null;
         img.src = '';
         document.body.style.overflow = '';
     }
@@ -45,6 +61,11 @@
         for (let i = 0; i < minRepeat; i++) set = set.concat(photos);
         const items = [...set, ...set];
 
+        // Eagerly load the photos that are visible on first paint so they
+        // appear immediately; everything off-screen stays lazy.
+        const approxPhotoWidth = 240;
+        const eagerCount = Math.ceil(window.innerWidth / approxPhotoWidth) + 2;
+
         items.forEach((src, i) => {
             const card = document.createElement('div');
             card.className = `gallery-photo ${heights[i % heights.length]}`;
@@ -53,10 +74,13 @@
             card.addEventListener('click', () => openLightbox(src));
 
             const img = document.createElement('img');
-            img.src = src;
             img.alt = 'Gallery moment';
-            img.loading = 'lazy';
+            const isVisible = i < eagerCount;
+            img.loading = isVisible ? 'eager' : 'lazy';
+            img.setAttribute('fetchpriority', isVisible ? 'high' : 'low');
+            img.decoding = 'async';
             img.onerror = () => { card.style.display = 'none'; };
+            img.src = optimized(src, 640);
 
             card.appendChild(img);
             rowEl.appendChild(card);
