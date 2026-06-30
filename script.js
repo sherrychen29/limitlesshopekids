@@ -259,6 +259,13 @@ window.addEventListener('load', updateActiveNav);
     const next = document.getElementById('teamCarouselNext');
     if (!track || !prev || !next) return;
 
+    function getScrollStep() {
+        const card = track.querySelector('.team-member-secondary-wrapper');
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).gap) || 22;
+        return card.offsetWidth + gap;
+    }
+
     function updateButtons() {
         const maxScroll = track.scrollWidth - track.clientWidth;
         const canScroll = maxScroll > 1;
@@ -267,11 +274,11 @@ window.addEventListener('load', updateActiveNav);
     }
 
     prev.addEventListener('click', () => {
-        track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+        track.scrollTo({ left: 0, behavior: 'smooth' });
     });
 
     next.addEventListener('click', () => {
-        track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+        track.scrollBy({ left: getScrollStep() * 2, behavior: 'smooth' });
     });
 
     track.addEventListener('scroll', updateButtons, { passive: true });
