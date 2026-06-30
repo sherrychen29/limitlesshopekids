@@ -168,9 +168,9 @@ body {
     background:
         linear-gradient(
             105deg,
-            rgba(253, 248, 239, 0.88) 0%,
-            rgba(253, 248, 239, 0.72) 45%,
-            rgba(253, 248, 239, 0.5) 100%
+            rgba(255, 252, 245, 0.87) 0%,
+            rgba(253, 248, 239, 0.74) 45%,
+            rgba(255, 255, 250, 0.58) 100%
         ),
         url('media/background.png') center / cover no-repeat;
     color: #5C4033;
