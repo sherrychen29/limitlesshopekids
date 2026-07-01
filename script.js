@@ -68,10 +68,14 @@
 
         items.forEach((src, i) => {
             const card = document.createElement('div');
-            card.className = `gallery-photo ${heights[i % heights.length]}`;
+            card.className = `gallery-photo ${heights[i % heights.length]} loading`;
             card.style.transform = `rotate(${tilts[i % tilts.length]}deg)`;
             card.style.marginTop = (i % 3 === 1) ? '10px' : '0';
             card.addEventListener('click', () => openLightbox(src));
+
+            const loader = document.createElement('div');
+            loader.className = 'gallery-photo-loader';
+            loader.setAttribute('aria-hidden', 'true');
 
             const img = document.createElement('img');
             img.alt = 'Gallery moment';
@@ -79,9 +83,18 @@
             img.loading = isVisible ? 'eager' : 'lazy';
             img.setAttribute('fetchpriority', isVisible ? 'high' : 'low');
             img.decoding = 'async';
+
+            function markLoaded() {
+                card.classList.remove('loading');
+                card.classList.add('loaded');
+            }
+
+            img.onload = markLoaded;
             img.onerror = () => { card.style.display = 'none'; };
             img.src = optimized(src, 640);
+            if (img.complete && img.naturalWidth) markLoaded();
 
+            card.appendChild(loader);
             card.appendChild(img);
             rowEl.appendChild(card);
         });
