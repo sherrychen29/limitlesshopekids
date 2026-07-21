@@ -287,11 +287,11 @@ window.addEventListener('load', updateActiveNav);
     }
 
     prev.addEventListener('click', () => {
-        track.scrollTo({ left: 0, behavior: 'smooth' });
+        track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     });
 
     next.addEventListener('click', () => {
-        track.scrollBy({ left: getScrollStep() * 2, behavior: 'smooth' });
+        track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     });
 
     track.addEventListener('scroll', updateButtons, { passive: true });
