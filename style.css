@@ -1430,22 +1430,6 @@ body {
     box-shadow: 0 6px 20px rgba(232, 86, 106, 0.38);
 }
 
-/* ── Phone (soft sky → cornflower blue) ─────────── */
-.footer-link-phone {
-    color: #4A90D9;
-    background:
-        linear-gradient(#fdf2db, #fdf2db) padding-box,
-        linear-gradient(135deg, #B3D9FF, #5AAEF0, #2B78D4) border-box;
-}
-.footer-section .footer-link-phone:hover {
-    background:
-        linear-gradient(135deg, #B3D9FF, #5AAEF0, #2B78D4) padding-box,
-        linear-gradient(135deg, #B3D9FF, #5AAEF0, #2B78D4) border-box;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(90, 174, 240, 0.42);
-}
-
 /* ── Instagram (gradient) ──────────────────────── */
 .footer-link-instagram {
     color: #C13584;
