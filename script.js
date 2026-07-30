@@ -44,6 +44,7 @@
     function closeLightbox() {
         const lb  = document.getElementById('lightbox');
         const img = document.getElementById('lightboxImg');
+        if (!lb || !img) return;
         lb.classList.remove('open', 'loading');
         img.onload = null;
         img.onerror = null;
@@ -51,9 +52,15 @@
         document.body.style.overflow = '';
     }
 
-    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-    document.getElementById('lightboxBackdrop').addEventListener('click', closeLightbox);
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    const galleryRow1 = document.getElementById('galleryRow1');
+    const galleryRow2 = document.getElementById('galleryRow2');
+    if (!galleryRow1 && !galleryRow2) return;
 
     function buildRow(rowEl, photos) {
         const minRepeat = Math.max(3, Math.ceil(14 / photos.length));
@@ -326,4 +333,119 @@ window.addEventListener('load', updateActiveNav);
 
     window.addEventListener('load', () => setTimeout(resizeWidget, 600));
     window.addEventListener('resize', resizeWidget);
+})();
+// ── Events list ───────────────────────────────────
+// Add new events to SITE_EVENTS. Homepage shows the 5 most recent; events.html shows all.
+(function initEventsList() {
+    const SITE_EVENTS = [
+        {
+            date: '2026-07-28',
+            label: 'July 28 2026',
+            text: 'Dropped off <b>114 handmade donations</b> (57 cards and 57 crafts) to Variety Village to be distrubuted to kids in theirAdventure Partners program.'
+        },
+        {
+            date: '2026-07-19',
+            label: 'July 19 2026',
+            text: 'Hosted bake sale collab event with Cookies 4 Care at Eglinton Park, <b>raising $176</b> for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2026-07-11',
+            label: 'July 11 2026',
+            text: 'Hosted Cards & Crafts event at North York Library with 53 volunteers, creating <b>114 handmade creations</b> (57 cards and 57 crafts).'
+        },
+        {
+            date: '2026-07-09',
+            label: 'July 9 2026',
+            text: 'Interviewed <b>Kingston Chui</b>, Founder of Toronto IBI for Spotlight Series #5.'
+        },
+        {
+            date: '2026-06-19',
+            label: 'June 19 2026',
+            text: 'Dropped off <b>110 handmade donations</b> (50 cards and 50 cards) to The Autism Centre of Toronto (TACT) to be distrubuted to kids in their programs.'
+        },
+        {
+            date: '2026-06-06',
+            label: 'June 6 2026',
+            text: 'Hosted Cards & Crafts event at North York Library with <b>42 volunteers</b>, creating <b>100 handmade creations</b> (50 cards and 50 crafts).'
+        },
+        {
+            date: '2026-03-27',
+            label: 'February 27 2026',
+            text: 'Interviewed <b>Ashlyn Turco</b>, volunteer Holland Bloorview Kids Rehabilitation Hospital for Spotlight Series #4.'
+        },
+        {
+            date: '2026-03-26',
+            label: 'February 26 2026',
+            text: 'Interviewed <b>Shannon Crossman</b>, Artist & Program coordinator at Holland Bloorview Kids Rehabilitation Hospital for Spotlight Series #3.'
+        },
+        {
+            date: '2026-03-17',
+            label: 'February 17 2026',
+            text: 'Interviewed <b>Sherry Chen</b>, our co-founder for Spotlight Series #1. Interviewed <b>Emma Kolada</b>, our Events Executive and Summer Camp Counselor at UCC Camps for Spotlight Series #2.'
+        }, 
+        {
+            date: '2026-03-11',
+            label: 'March 11 2026',
+            text: 'Launched <b>Spotlight Series</b> interview initiative to spread awareness about experiences and strategies that help caregivers and individuals support neurodivergent children.'
+        },
+        {
+            date: '2026-02-12',
+            label: 'February 12 2026',
+            text: 'Dropped off <b>10 carebasket donations</b> to Holland Bloorview Kids Rehabilitation Hosptial to be distrubuted to staff for our collab with Caring 4 Caregivers.'
+        },
+        {
+            date: '2026-02-09',
+            label: 'February 9 2026',
+            text: 'Received baked goods donation of $50+ value from <b>Circles and Squares Bakery</b> to support our carebaskets for Holland Bloorview Kids Rehabilitation Hospital for our collab with Caring 4 Caregivers.'
+        },
+        {
+            date: '2026-01-31',
+            label: 'January 31 2026',
+            text: 'Hosted Carebasket Making event at North York Library with <b>77 volunteers</b>, creating <b>83 cards and 10 carebaskets</b> for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2025-12-31',
+            label: 'December 31 2025',
+            text: 'Received donation of items of <b>$100+ value</b> from <b>PawsNatural Pet Store</b> to support our carebaskets for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2025-10-24',
+            label: 'October 24 2025',
+            text: 'Hosted bake sale event at Eglinton Park, <b>fundraised $215</b> for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2025-10-19',
+            label: 'October 19 2025',
+            text: 'Partnered <b>Caring 4 Caregivers</b> (California-based organization), to donate carebaskets to staff supporting neurodivergent children.'
+        },
+        {
+            date: '2025-10-10',
+            label: 'October 10 2025',
+            text: 'Hosted bake sale event at Eglinton Park, <b>fundraised $195</b> for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2025-04-27',
+            label: 'April 27 2025',
+            text: 'Hosted our first ever bake sale and scavenger hunt event at Eglinton Park, <b>fundraised $136</b> for Holland Bloorview Kids Rehabilitation Hospital.'
+        },
+        {
+            date: '2025-03-08',
+            label: 'March 8 2025',
+            text: '<b>Sherry Chen</b> and <b>Paige Wanniappa</b> founded Limitless Hope Kids to support kids experiencing disabilities! For Sherry, she wanted to help children like her brother, and partnered with Paige to bring this vision to life.'
+        },
+
+
+    ];
+
+    const sorted = [...SITE_EVENTS].sort((a, b) => b.date.localeCompare(a.date));
+
+    function renderEvents(listEl, events) {
+        if (!listEl) return;
+        listEl.innerHTML = events.map((event) =>
+            `<li><strong>${event.label}:</strong> ${event.text}</li>`
+        ).join('');
+    }
+
+    renderEvents(document.getElementById('eventsListPreview'), sorted.slice(0, 5));
+    renderEvents(document.getElementById('eventsListFull'), sorted);
 })();

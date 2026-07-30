@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@103.4,469&family=Roboto+Slab:wght@375&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@103.4,469&family=Roboto+Slab:wght@375;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..600&display=swap');
 
@@ -454,6 +454,110 @@ body {
 
 .events-section .section-content p {
     white-space: normal;
+}
+
+.events-list {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.events-list li {
+    position: relative;
+    padding-left: 1.35em;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #5C4033;
+}
+
+.events-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.55em;
+    height: 0.55em;
+    border-radius: 50%;
+    background: #FF6B35;
+}
+
+.events-list strong {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #5C4033;
+}
+
+.events-list b,
+.events-list .event-highlight {
+    font-weight: 550;
+    color: #5C4033;
+}
+
+.events-see-all {
+    margin-top: 28px;
+}
+
+.events-archive-page {
+    padding-top: 160px;
+    min-height: 70vh;
+    background: #fdf2db;
+}
+
+.events-archive-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(253, 242, 219, 0.35) 0%, rgba(253, 242, 219, 0.55) 100%),
+        url('media/activity-bg.jpg') center / cover no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.events-archive-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+.events-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 10px 22px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    background: linear-gradient(135deg, #FF6B35 0%, #ff8050 100%);
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(255, 107, 53, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.events-back-link:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 22px rgba(255, 107, 53, 0.4);
+}
+
+a.navbar-logo {
+    text-decoration: none;
+    color: inherit;
+}
+
+.events-section-feed {
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(255, 210, 63, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 75%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
+        #F7F7E9;
 }
 
 .instagram-feed-container {
