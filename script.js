@@ -391,7 +391,7 @@ window.addEventListener('load', updateActiveNav);
         {
             date: '2026-02-12',
             label: 'February 12 2026',
-            text: 'Dropped off <b>10 carebasket donations</b> to Holland Bloorview Kids Rehabilitation Hosptial to be distrubuted to staff for our collab with Caring 4 Caregivers.'
+            text: 'Dropped off <b>10 carebasket donations</b> value at <b>$300</b> to Holland Bloorview Kids Rehabilitation Hosptial to be distrubuted to staff for our collab with Caring 4 Caregivers.'
         },
         {
             date: '2026-02-09',
