@@ -603,11 +603,29 @@ a.navbar-logo {
 
 .local-supporters-logos {
     display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.local-supporters-row {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 32px 48px;
-    margin-top: 24px;
+}
+
+.local-supporters-row--first {
+    flex-wrap: nowrap;
+}
+
+.local-supporters-row--first .local-supporter-link {
+    min-width: 0;
+}
+
+.local-supporters-row--first .local-supporter-logo {
+    max-width: 100%;
 }
 
 .local-supporter-link {
@@ -615,6 +633,11 @@ a.navbar-logo {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+
+.local-supporter-link--white {
+    padding: 16px;
+    background: #fff;
 }
 
 .local-supporter-logo {
@@ -625,13 +648,32 @@ a.navbar-logo {
     object-fit: contain;
 }
 
+.local-supporter-logo--smaller {
+    max-height: 135px;
+    max-width: 324px;
+}
+
+.local-supporter-logo--straightened {
+    transform: rotate(13deg);
+}
+
 @media (max-width: 768px) {
     .local-supporters-logos {
         gap: 24px;
     }
+    .local-supporters-row {
+        gap: 24px;
+    }
+    .local-supporters-row--first {
+        flex-wrap: wrap;
+    }
     .local-supporter-logo {
         max-height: 110px;
         max-width: 270px;
+    }
+    .local-supporter-logo--smaller {
+        max-height: 99px;
+        max-width: 243px;
     }
 }
 

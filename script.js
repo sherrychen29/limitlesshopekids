@@ -131,37 +131,58 @@
 
 // ── Local Supporters (dynamic list: add entries + image in media/localsupporters to show more) ──
 (function initLocalSupporters() {
-    const LOCAL_SUPPORTERS = [
-        { name: 'The Autism Centre of Toronto', url: 'https://www.autismtoronto.ca/', image: 'media/partners/tact.png' },
-        { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/partners/pawsnatural.avif' },
-        { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/partners/hollandbloorview.png' },
-        { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/partners/circlesandsquares.jpg' },
-        { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/caring4caregivers.jpg' },
-        { name: 'Toronto High Park FC', url: 'https://www.thpfc.ca/', image: 'media/partners/highparkfc.png' },
-        { name: 'Variety Village', url: 'https://www.varietyvillage.ca/', image: 'media/partners/varietyvillage.png' },
-        { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' },
-        { name: 'Cookies 4 Care', url: 'https://www.instagram.com/cookies_4care/', image: 'media/partners/cookies4care.jpg' }
+    const LOCAL_SUPPORTER_ROWS = [
+        [
+            { name: 'The Autism Centre of Toronto', url: 'https://www.autismtoronto.ca/', image: 'media/partners/tact.png' },
+            { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/partners/hollandbloorview.png' },
+            { name: 'Variety Village', url: 'https://www.varietyvillage.ca/', image: 'media/partners/varietyvillage.png' },
+            { name: 'Lumenus Autism Services', url: 'https://www.lumenus.ca/', image: 'media/partners/lumenus.png', whiteBackground: true, smaller: true }
+        ],
+        [
+            { name: 'University of Toronto Aerospace Engineering Student Club', url: 'https://www.instagram.com/aes_club_uoft/', image: 'media/partners/uoft.webp', whiteBackground: true, smaller: true },
+            { name: 'Meet Me at the Crossroads', url: 'https://meetmeatthecrossroads.org/', image: 'media/partners/mmac.jpg', smaller: true },
+            { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' },
+            { name: 'Crayola', url: 'https://www.crayola.ca/', image: 'media/partners/crayola.png', whiteBackground: true, smaller: true, straighten: true }
+        ],
+        [
+            { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/caring4caregivers.jpg' },
+            { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/partners/pawsnatural.avif' },
+            { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/partners/circlesandsquares.jpg' },
+            { name: 'Toronto High Park FC', url: 'https://www.thpfc.ca/', image: 'media/partners/highparkfc.png' },
+            { name: 'Cookies 4 Care', url: 'https://www.instagram.com/cookies_4care/', image: 'media/partners/cookies4care.jpg' }
+        ]
     ];
 
     const container = document.getElementById('local-supporters-logos');
     if (!container) return;
 
-    LOCAL_SUPPORTERS.forEach(function (s) {
-        const a = document.createElement('a');
-        a.href = s.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.className = 'local-supporter-link';
-        a.setAttribute('aria-label', 'Visit ' + s.name);
+    LOCAL_SUPPORTER_ROWS.forEach(function (supporters, rowIndex) {
+        const row = document.createElement('div');
+        row.className = 'local-supporters-row';
+        if (rowIndex === 0) row.classList.add('local-supporters-row--first');
 
-        const img = document.createElement('img');
-        img.src = s.image;
-        img.alt = s.name;
-        img.loading = 'lazy';
-        img.className = 'local-supporter-logo';
+        supporters.forEach(function (s) {
+            const a = document.createElement('a');
+            a.href = s.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = 'local-supporter-link';
+            if (s.whiteBackground) a.classList.add('local-supporter-link--white');
+            a.setAttribute('aria-label', 'Visit ' + s.name);
 
-        a.appendChild(img);
-        container.appendChild(a);
+            const img = document.createElement('img');
+            img.src = s.image;
+            img.alt = s.name;
+            img.loading = 'lazy';
+            img.className = 'local-supporter-logo';
+            if (s.smaller) img.classList.add('local-supporter-logo--smaller');
+            if (s.straighten) img.classList.add('local-supporter-logo--straightened');
+
+            a.appendChild(img);
+            row.appendChild(a);
+        });
+
+        container.appendChild(row);
     });
 })();
 // ── End Local Supporters ────────────────────────────
