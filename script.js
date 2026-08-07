@@ -360,6 +360,11 @@ window.addEventListener('load', updateActiveNav);
 (function initEventsList() {
     const SITE_EVENTS = [
         {
+            date: '2026-08-06',
+            label: 'August 6 2026',
+            text: 'Recognized by <b>Crayola</b>, and received donations of <b>300+ items</b> (markers, colored pencils, and colored paper) for our Cards & Crafts events.'
+        },
+        {
             date: '2026-07-28',
             label: 'July 28 2026',
             text: 'Dropped off <b>114 handmade donations</b> (57 cards and 57 crafts) to Variety Village to be distrubuted to kids in theirAdventure Partners program.'
