@@ -360,6 +360,11 @@ window.addEventListener('load', updateActiveNav);
 (function initEventsList() {
     const SITE_EVENTS = [
         {
+            date: '2026-08-08',
+            label: 'August 8 2026',
+            text: 'Hosted Cards & Crafts event at North York Library with 42 volunteers, creating <b>62 handmade creations</b> (31 cards and 31 crafts).'
+        },
+        {
             date: '2026-08-06',
             label: 'August 6 2026',
             text: 'Recognized by <b>Crayola</b>, and received donations of <b>300+ items</b> (markers, colored pencils, and colored paper) for our Cards & Crafts events.'
