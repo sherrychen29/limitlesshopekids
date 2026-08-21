@@ -136,13 +136,15 @@
             { name: 'The Autism Centre of Toronto', url: 'https://www.autismtoronto.ca/', image: 'media/partners/tact.png' },
             { name: 'Holland Bloorview', url: 'https://hollandbloorview.ca/', image: 'media/partners/hollandbloorview.png' },
             { name: 'Variety Village', url: 'https://www.varietyvillage.ca/', image: 'media/partners/varietyvillage.png' },
-            { name: 'Lumenus Autism Services', url: 'https://www.lumenus.ca/', image: 'media/partners/lumenus.png', whiteBackground: true, smaller: true }
+            { name: 'Autism In Mind', url: 'https://autisminmind.org/', image: 'media/partners/autisminmind.png', whiteBackground: true, smallest: true }
         ],
         [
+            { name: 'Lumenus Autism Services', url: 'https://www.lumenus.ca/', image: 'media/partners/lumenus.png', whiteBackground: true, smaller: true },
             { name: 'University of Toronto Aerospace Engineering Student Club', url: 'https://www.instagram.com/aes_club_uoft/', image: 'media/partners/uoft.webp', whiteBackground: true, smaller: true },
             { name: 'Meet Me at the Crossroads', url: 'https://meetmeatthecrossroads.org/', image: 'media/partners/mmac.jpg', smaller: true },
             { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' },
-            { name: 'Crayola', url: 'https://www.crayola.ca/', image: 'media/partners/crayola.png', whiteBackground: true, smaller: true, straighten: true }
+            { name: 'Crayola', url: 'https://www.crayola.ca/', image: 'media/partners/crayola.png', whiteBackground: true, smaller: true, straighten: true },
+            { name: 'Toronto Public Library', url: 'https://tpl.ca/teens/youth-hubs/', image: 'media/partners/tpl.png', whiteBackground: true, smaller: true }
         ],
         [
             { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/caring4caregivers.jpg' },
@@ -176,6 +178,7 @@
             img.loading = 'lazy';
             img.className = 'local-supporter-logo';
             if (s.smaller) img.classList.add('local-supporter-logo--smaller');
+            if (s.smallest) img.classList.add('local-supporter-logo--smallest');
             if (s.straighten) img.classList.add('local-supporter-logo--straightened');
 
             a.appendChild(img);
@@ -359,6 +362,21 @@ window.addEventListener('load', updateActiveNav);
 // Add new events to SITE_EVENTS. Homepage shows the 5 most recent; events.html shows all.
 (function initEventsList() {
     const SITE_EVENTS = [
+        {
+            date: '2026-08-18',
+            label: 'August 18 2026',
+            text: 'Partnered with <b>Autism In Mind, Aim Without Limits Private School, and AIM\'s Blob Cafe</b>  together with founder Suki and Rotem  to launch an exciting fundraiser initiative during Canada\'s Autism Awareness Month in October!'
+        },
+        {
+            date: '2026-08-14',
+            label: 'August 14 2026',
+            text: 'Our founder, <b>Sherry Chen</b>, got interviewed by the <b>Speaking For Youth</b> podcast on inclusivity and building spaces within youth and teenage communities.'
+        },
+        {
+            date: '2026-08-14',
+            label: 'August 14 2026',
+            text: 'Dropped off <b>19 cards and crafts</b> to Toronto High Park FC to be distributed to kids in their All Abilities program.'
+        },
         {
             date: '2026-08-08',
             label: 'August 8 2026',

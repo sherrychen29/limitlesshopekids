@@ -653,6 +653,11 @@ a.navbar-logo {
     max-width: 324px;
 }
 
+.local-supporter-logo--smallest {
+    max-height: 95px;
+    max-width: 220px;
+}
+
 .local-supporter-logo--straightened {
     transform: rotate(13deg);
 }
@@ -674,6 +679,10 @@ a.navbar-logo {
     .local-supporter-logo--smaller {
         max-height: 99px;
         max-width: 243px;
+    }
+    .local-supporter-logo--smallest {
+        max-height: 70px;
+        max-width: 165px;
     }
 }
 
