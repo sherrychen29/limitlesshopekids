@@ -501,12 +501,12 @@ body {
     margin-top: 28px;
 }
 
+#activity,
 .events-archive-page {
-    padding-top: 160px;
-    min-height: 70vh;
     background: #fdf2db;
 }
 
+#activity::before,
 .events-archive-page::before {
     content: '';
     position: absolute;
@@ -519,9 +519,20 @@ body {
     z-index: 0;
 }
 
+#activity::before {
+    background-size: auto, 170%;
+    background-position: center;
+}
+
+#activity > *,
 .events-archive-page > * {
     position: relative;
     z-index: 1;
+}
+
+.events-archive-page {
+    padding-top: 160px;
+    min-height: 70vh;
 }
 
 .events-back-link {

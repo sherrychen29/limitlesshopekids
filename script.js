@@ -139,7 +139,6 @@
             { name: 'Autism In Mind', url: 'https://autisminmind.org/', image: 'media/partners/autisminmind.png', whiteBackground: true, smallest: true }
         ],
         [
-            { name: 'Lumenus Autism Services', url: 'https://www.lumenus.ca/', image: 'media/partners/lumenus.png', whiteBackground: true, smaller: true },
             { name: 'University of Toronto Aerospace Engineering Student Club', url: 'https://www.instagram.com/aes_club_uoft/', image: 'media/partners/uoft.webp', whiteBackground: true, smaller: true },
             { name: 'Meet Me at the Crossroads', url: 'https://meetmeatthecrossroads.org/', image: 'media/partners/mmac.jpg', smaller: true },
             { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' },
@@ -362,6 +361,21 @@ window.addEventListener('load', updateActiveNav);
 // Add new events to SITE_EVENTS. Homepage shows the 5 most recent; events.html shows all.
 (function initEventsList() {
     const SITE_EVENTS = [
+        {
+            date: '2026-09-15',
+            label: 'September 15 2026',
+            text: 'Dropped off <b>21 cards and crafts</b> to CEO/Director Jovana Guzman from <b>Meet Me At The Crossroads</b> to be distributed to kids in their programs.'
+        },
+        {
+            date: '2026-09-12',
+            label: 'September 12 2026',
+            text: 'Hosted Cards & Crafts event at North York Library with 48 volunteers, creating <b>203 handmade creations</b> (112 cards and 91 crafts).'
+        },
+        {
+            date: '2026-08-27',
+            label: 'August 27 2026',
+            text: 'Hosted Cards & Crafts event in collaboration with <b>Toronto Public Library (TPL)\'s Youth Hub</b>'
+        },
         {
             date: '2026-08-18',
             label: 'August 18 2026',
