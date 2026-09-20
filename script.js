@@ -110,6 +110,53 @@
 
     let hasRendered = false;
 
+    function startMobileAutoScroll() {
+        const section = document.getElementById('gallery');
+        const stage = section && section.querySelector('.gallery-stage');
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+        const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!stage || !mobileQuery.matches || reducedMotionQuery.matches) return;
+
+        let direction = 1;
+        let previousTime = performance.now();
+        let resumeAt = 0;
+        const speed = 10; // pixels per second
+
+        function pauseForInteraction() {
+            resumeAt = performance.now() + 4000;
+        }
+
+        stage.addEventListener('pointerdown', pauseForInteraction, { passive: true });
+        stage.addEventListener('touchstart', pauseForInteraction, { passive: true });
+
+        function step(currentTime) {
+            const elapsed = Math.min(currentTime - previousTime, 40);
+            previousTime = currentTime;
+
+            if (!document.hidden &&
+                section.classList.contains('is-active') &&
+                currentTime >= resumeAt) {
+                const maxScroll = stage.scrollWidth - stage.clientWidth;
+
+                if (maxScroll > 1) {
+                    stage.scrollLeft += direction * speed * (elapsed / 1000);
+
+                    if (stage.scrollLeft >= maxScroll - 1) {
+                        stage.scrollLeft = maxScroll;
+                        direction = -1;
+                    } else if (stage.scrollLeft <= 0) {
+                        stage.scrollLeft = 0;
+                        direction = 1;
+                    }
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
     function renderGallery(photos) {
         if (hasRendered) return;
         hasRendered = true;
@@ -123,6 +170,7 @@
 
         if (row1) buildRow(row1, firstHalf);
         if (row2) buildRow(row2, secondHalf.length ? secondHalf : firstHalf);
+        startMobileAutoScroll();
     }
 
     function renderWhenNearGallery(photos) {
