@@ -1681,6 +1681,11 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    #activity::before {
+        background-size: auto, cover;
+        background-position: center;
+    }
+
     .navbar {
         padding: 10px 20px 12px;
     }
