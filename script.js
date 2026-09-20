@@ -456,7 +456,7 @@ window.addEventListener('load', updateActiveNav);
         {
             date: '2026-08-18',
             label: 'August 18 2026',
-            text: 'Partnered with <b>Autism In Mind, Aim Without Limits Private School, and AIM\'s Blob Cafe</b>  together with founder Suki and Rotem  to launch an exciting fundraiser initiative during Canada\'s Autism Awareness Month in October!'
+            text: 'Partnered with <b>Autism In Mind and AIM\'s Blob Cafe</b>  together with founder Suki and Rotem  to launch an exciting fundraiser initiative during Canada\'s Autism Awareness Month in October!'
         },
         {
             date: '2026-08-14',
