@@ -520,7 +520,7 @@ body {
 }
 
 #activity::before {
-    background-size: auto, 170%;
+    background-size: auto, cover;
     background-position: center;
 }
 
@@ -1682,8 +1682,14 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
     #activity::before {
-        background-size: auto, 100% 100%;
+        background-size: auto, cover;
         background-position: center, center;
+    }
+
+    .events-archive-page::before {
+        background-size: auto, 250% auto;
+        background-repeat: no-repeat, repeat-y;
+        background-position: center, top center;
     }
 
     .navbar {
