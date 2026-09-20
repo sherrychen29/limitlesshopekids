@@ -63,10 +63,15 @@
     if (!galleryRow1 && !galleryRow2) return;
 
     function buildRow(rowEl, photos) {
-        const minRepeat = Math.max(3, Math.ceil(14 / photos.length));
+        // Build only enough unique cards to fill a row. Desktop duplicates that
+        // sequence once for the seamless marquee; mobile uses one swipeable set.
+        const minRepeat = Math.max(1, Math.ceil(8 / photos.length));
         let set = [];
         for (let i = 0; i < minRepeat; i++) set = set.concat(photos);
-        const items = [...set, ...set];
+        const shouldLoop = !window.matchMedia(
+            '(max-width: 768px), (prefers-reduced-motion: reduce)'
+        ).matches;
+        const items = shouldLoop ? [...set, ...set] : set;
 
         // Eagerly load the photos that are visible on first paint so they
         // appear immediately; everything off-screen stays lazy.
@@ -80,13 +85,10 @@
             card.style.marginTop = (i % 3 === 1) ? '10px' : '0';
             card.addEventListener('click', () => openLightbox(src));
 
-            const loader = document.createElement('div');
-            loader.className = 'gallery-photo-loader';
-            loader.setAttribute('aria-hidden', 'true');
-
             const img = document.createElement('img');
             img.alt = 'Gallery moment';
-            const isVisible = i < eagerCount;
+            const isVisible = i < eagerCount ||
+                (shouldLoop && i >= set.length && i < set.length + eagerCount);
             img.loading = isVisible ? 'eager' : 'lazy';
             img.setAttribute('fetchpriority', isVisible ? 'high' : 'low');
             img.decoding = 'async';
@@ -101,17 +103,44 @@
             img.src = optimized(src, 640);
             if (img.complete && img.naturalWidth) markLoaded();
 
-            card.appendChild(loader);
             card.appendChild(img);
             rowEl.appendChild(card);
         });
     }
 
+    let hasRendered = false;
+
     function renderGallery(photos) {
+        if (hasRendered) return;
+        hasRendered = true;
+
         const row1 = document.getElementById('galleryRow1');
         const row2 = document.getElementById('galleryRow2');
-        if (row1) buildRow(row1, shuffle(photos));
-        if (row2) buildRow(row2, shuffle(photos));
+        const shuffled = shuffle(photos);
+        const splitAt = Math.ceil(shuffled.length / 2);
+        const firstHalf = shuffled.slice(0, splitAt);
+        const secondHalf = shuffled.slice(splitAt);
+
+        if (row1) buildRow(row1, firstHalf);
+        if (row2) buildRow(row2, secondHalf.length ? secondHalf : firstHalf);
+    }
+
+    function renderWhenNearGallery(photos) {
+        const section = document.getElementById('gallery');
+        if (!section || !('IntersectionObserver' in window)) {
+            renderGallery(photos);
+            if (section) section.classList.add('is-active');
+            return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                section.classList.toggle('is-active', entry.isIntersecting);
+                if (entry.isIntersecting) renderGallery(photos);
+            });
+        }, { rootMargin: '600px 0px' });
+
+        observer.observe(section);
     }
 
     fetch(GITHUB_API)
@@ -123,9 +152,9 @@
             const photos = files
                 .filter(f => f.type === 'file' && IMAGE_EXTS.test(f.name))
                 .map(f => f.download_url);
-            renderGallery(photos.length ? photos : fallbackPhotos);
+            renderWhenNearGallery(photos.length ? photos : fallbackPhotos);
         })
-        .catch(() => renderGallery(fallbackPhotos));
+        .catch(() => renderWhenNearGallery(fallbackPhotos));
 })();
 // ── End Gallery ────────────────────────────────────
 

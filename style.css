@@ -1163,15 +1163,11 @@ a.navbar-logo {
     );
 }
 
-.gallery-stage:hover .gallery-row {
-    animation-play-state: paused;
-}
-
 .gallery-row {
     display: flex;
     gap: 18px;
     width: max-content;
-    will-change: transform;
+    animation-play-state: paused;
 }
 
 .gallery-row-1 {
@@ -1180,6 +1176,15 @@ a.navbar-logo {
 
 .gallery-row-2 {
     animation: gallery-scroll-right 183s linear infinite;
+}
+
+.gallery-section.is-active .gallery-row {
+    animation-play-state: running;
+    will-change: transform;
+}
+
+.gallery-section.is-active .gallery-stage:hover .gallery-row {
+    animation-play-state: paused;
 }
 
 @keyframes gallery-scroll-left {
@@ -1204,36 +1209,6 @@ a.navbar-logo {
     transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease;
     cursor: pointer;
     background: #fff;
-}
-
-.gallery-photo-loader {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-photo-loader::after {
-    content: '';
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 107, 53, 0.2);
-    border-top-color: #FF6B35;
-    animation: gallery-spin 0.8s linear infinite;
-}
-
-.gallery-photo.loaded .gallery-photo-loader {
-    opacity: 0;
-    pointer-events: none;
-}
-
-@keyframes gallery-spin {
-    to { transform: rotate(360deg); }
 }
 
 .gallery-photo:hover {
@@ -1261,6 +1236,27 @@ a.navbar-logo {
 .gallery-photo.h-short  { height: 180px; }
 .gallery-photo.h-medium { height: 220px; }
 .gallery-photo.h-tall   { height: 260px; }
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    .gallery-stage {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .gallery-stage::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-row,
+    .gallery-section.is-active .gallery-row {
+        animation: none;
+        transform: none;
+        will-change: auto;
+    }
+}
 /* ── End Gallery Section ─────────────────────────── */
 
 /* ── Lightbox ────────────────────────────────────── */
