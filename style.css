@@ -82,6 +82,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.88rem;
+    white-space: nowrap;
     transition: color 0.25s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
     padding: 8px 16px;
     border-radius: 50px;
@@ -639,6 +640,18 @@ a.navbar-logo {
     max-width: 100%;
 }
 
+.local-supporters-row--inline {
+    flex-wrap: nowrap;
+}
+
+.local-supporters-row--inline .local-supporter-link {
+    min-width: 0;
+}
+
+.local-supporters-row--inline .local-supporter-logo {
+    max-width: 100%;
+}
+
 .local-supporter-link {
     display: flex;
     align-items: center;
@@ -649,6 +662,10 @@ a.navbar-logo {
 .local-supporter-link--white {
     padding: 16px;
     background: #fff;
+}
+
+.local-supporter-link--tight {
+    padding: 6px 8px;
 }
 
 .local-supporter-logo {
@@ -669,6 +686,11 @@ a.navbar-logo {
     max-width: 220px;
 }
 
+.local-supporter-logo--tiny {
+    max-height: 70px;
+    max-width: 220px;
+}
+
 .local-supporter-logo--straightened {
     transform: rotate(13deg);
 }
@@ -680,7 +702,8 @@ a.navbar-logo {
     .local-supporters-row {
         gap: 24px;
     }
-    .local-supporters-row--first {
+    .local-supporters-row--first,
+    .local-supporters-row--inline {
         flex-wrap: wrap;
     }
     .local-supporter-logo {
@@ -694,6 +717,10 @@ a.navbar-logo {
     .local-supporter-logo--smallest {
         max-height: 70px;
         max-width: 165px;
+    }
+    .local-supporter-logo--tiny {
+        max-height: 56px;
+        max-width: 175px;
     }
 }
 
@@ -1679,19 +1706,8 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #activity::before {
-        background-size: auto, cover;
-        background-position: center, center;
-    }
-
-    .events-archive-page::before {
-        background-size: auto, 250% auto;
-        background-repeat: no-repeat, repeat-y;
-        background-position: center, top center;
-    }
-
+/* Switch to the side menu once labels like "Partners & Supporters" would wrap */
+@media (max-width: 1340px) {
     .navbar {
         padding: 10px 20px 12px;
     }
@@ -1737,6 +1753,20 @@ html {
         font-size: 0.95rem;
         padding: 10px 16px;
         border-radius: 12px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #activity::before {
+        background-size: auto, cover;
+        background-position: center, center;
+    }
+
+    .events-archive-page::before {
+        background-size: auto, 250% auto;
+        background-repeat: no-repeat, repeat-y;
+        background-position: center, top center;
     }
 
     .container {
@@ -1968,7 +1998,16 @@ html {
     }
 
     .impact-row {
-        gap: 24px;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+        justify-items: start;
+        column-gap: 40px;
+        row-gap: 22px;
+    }
+
+    .impact-stat {
+        text-align: left;
     }
 
     .team-carousel {

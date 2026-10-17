@@ -219,11 +219,15 @@
             { name: 'University of Toronto Aerospace Engineering Student Club', url: 'https://www.instagram.com/aes_club_uoft/', image: 'media/partners/uoft.webp', whiteBackground: true, smaller: true },
             { name: 'Meet Me at the Crossroads', url: 'https://meetmeatthecrossroads.org/', image: 'media/partners/mmac.jpg', smaller: true },
             { name: 'Autism Ontario', url: 'https://www.autismontario.com/', image: 'media/partners/autismontario.png' },
-            { name: 'Crayola', url: 'https://www.crayola.ca/', image: 'media/partners/crayola.png', whiteBackground: true, smaller: true, straighten: true },
-            { name: 'Toronto Public Library', url: 'https://tpl.ca/teens/youth-hubs/', image: 'media/partners/tpl.png', whiteBackground: true, smaller: true }
+            { name: 'Crayola', url: 'https://www.crayola.ca/', image: 'media/partners/crayola.png', whiteBackground: true, smaller: true, straighten: true }
         ],
         [
+            { name: 'Toronto Public Library', url: 'https://tpl.ca/teens/youth-hubs/', image: 'media/partners/tpl.png', whiteBackground: true, tiny: true },
             { name: 'Caring 4 Caregivers', url: 'https://www.instagram.com/caring.forcaregivers/', image: 'media/partners/caring4caregivers.jpg' },
+            { name: 'Music for Every Child', url: 'https://musicforeverychild.com/', image: 'media/partners/mfec.jpg' },
+            { name: 'Blob Cafe', url: 'https://www.instagram.com/blob_thestar/', image: 'media/partners/blob.jpg' }
+        ],
+        [
             { name: 'PawsNatural', url: 'https://pawsnatural.ca/', image: 'media/partners/pawsnatural.avif' },
             { name: 'Circles & Squares', url: 'https://www.circlesandsquares.ca/', image: 'media/partners/circlesandsquares.jpg' },
             { name: 'Toronto High Park FC', url: 'https://www.thpfc.ca/', image: 'media/partners/highparkfc.png' },
@@ -238,6 +242,7 @@
         const row = document.createElement('div');
         row.className = 'local-supporters-row';
         if (rowIndex === 0) row.classList.add('local-supporters-row--first');
+        if (rowIndex === 2) row.classList.add('local-supporters-row--inline');
 
         supporters.forEach(function (s) {
             const a = document.createElement('a');
@@ -246,6 +251,7 @@
             a.rel = 'noopener noreferrer';
             a.className = 'local-supporter-link';
             if (s.whiteBackground) a.classList.add('local-supporter-link--white');
+            if (s.tiny) a.classList.add('local-supporter-link--tight');
             a.setAttribute('aria-label', 'Visit ' + s.name);
 
             const img = document.createElement('img');
@@ -255,6 +261,7 @@
             img.className = 'local-supporter-logo';
             if (s.smaller) img.classList.add('local-supporter-logo--smaller');
             if (s.smallest) img.classList.add('local-supporter-logo--smallest');
+            if (s.tiny) img.classList.add('local-supporter-logo--tiny');
             if (s.straighten) img.classList.add('local-supporter-logo--straightened');
 
             a.appendChild(img);
@@ -438,10 +445,20 @@ window.addEventListener('load', updateActiveNav);
 // Add new events to SITE_EVENTS. Homepage shows the 5 most recent; events.html shows all.
 (function initEventsList() {
     const SITE_EVENTS = [
+        // {
+        //     date: '2026-10-30',
+        //     label: 'October 30 2026',
+        //     text: 'Dropped off <b>380 handmade donations</b> (190 cards and 190 crafts) for kids in <b>Music For Every Child</b>\'s event at Roywood Public School.'
+        // },
+        {
+            date: '2026-10-03',
+            label: 'October 3 2026',
+            text: '<b>Raised $1003</b> through our day-long fundraiser for Canada\'s Autism Awareness Month in partnership with <b>Autism In Mind (AIM)</b> charity and their Blob Cafe.'
+        },
         {
             date: '2026-09-15',
             label: 'September 15 2026',
-            text: 'Dropped off <b>21 cards and crafts</b> to CEO/Director Jovana Guzman from <b>Meet Me At The Crossroads</b> to be distributed to kids in their programs.'
+            text: 'Dropped off <b>42 handmade donations</b> (21 cards and 21 crafts) to CEO/Director Jovana Guzman from <b>Meet Me At The Crossroads</b> to be distributed to kids in their programs.'
         },
         {
             date: '2026-09-12',
@@ -464,9 +481,10 @@ window.addEventListener('load', updateActiveNav);
             text: 'Our founder, <b>Sherry Chen</b>, got interviewed by the <b>Speaking For Youth</b> podcast on inclusivity and building spaces within youth and teenage communities.'
         },
         {
+            
             date: '2026-08-14',
             label: 'August 14 2026',
-            text: 'Dropped off <b>19 cards and crafts</b> to Toronto High Park FC to be distributed to kids in their All Abilities program.'
+            text: 'Dropped off <b>38 handmade donations</b> (19 cards and 19 crafts)to Toronto High Park FC to be distributed to kids in their All Abilities program.'
         },
         {
             date: '2026-08-08',
