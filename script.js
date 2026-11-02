@@ -445,11 +445,11 @@ window.addEventListener('load', updateActiveNav);
 // Add new events to SITE_EVENTS. Homepage shows the 5 most recent; events.html shows all.
 (function initEventsList() {
     const SITE_EVENTS = [
-        // {
-        //     date: '2026-10-30',
-        //     label: 'October 30 2026',
-        //     text: 'Dropped off <b>380 handmade donations</b> (190 cards and 190 crafts) for kids in <b>Music For Every Child</b>\'s event at Roywood Public School.'
-        // },
+        {
+            date: '2026-10-30',
+            label: 'October 30 2026',
+            text: 'Dropped off <b>380 handmade donations</b> (190 cards and 190 crafts) for kids in <b>Music For Every Child</b>\'s event at Roywood Public School.'
+        },
         {
             date: '2026-10-03',
             label: 'October 3 2026',
