@@ -446,6 +446,11 @@ window.addEventListener('load', updateActiveNav);
 (function initEventsList() {
     const SITE_EVENTS = [
         {
+            date: '2026-11-03',
+            label: 'November 3 2026',
+            text: 'Received recognition from the <b>Premier of Ontario, Doug Ford</b>, for our work in supporting kids with disabilities across Ontario.'
+        },
+        {
             date: '2026-10-30',
             label: 'October 30 2026',
             text: 'Dropped off <b>380 handmade donations</b> (190 cards and 190 crafts) for kids in <b>Music For Every Child</b>\'s event at Roywood Public School.'
